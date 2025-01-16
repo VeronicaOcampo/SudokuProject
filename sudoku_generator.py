@@ -1,6 +1,7 @@
 import math, random
 
 
+
 class SudokuGenerator:
 
     def __init__(self, row_length, removed_cells):
@@ -9,12 +10,14 @@ class SudokuGenerator:
         self.box_length = int(math.sqrt(row_length))
         self.board = [[0 for i in range(row_length)] for j in range(row_length)]
 
+
     def get_board(self):
         return self.board
 
 
     def print_board(self):
         print(self.board)
+
 
     def valid_in_row(self, row, num):
         falsereturned = False
@@ -102,7 +105,6 @@ class SudokuGenerator:
         self.fill_box(3, 3)
         self.fill_box(6, 6)
 
-
     def fill_remaining(self, row, col):
         if (col >= self.row_length and row < self.row_length - 1):
             row += 1
@@ -130,11 +132,9 @@ class SudokuGenerator:
                 self.board[row][col] = 0
         return False
 
-
     def fill_values(self):
         self.fill_diagonal()
         self.fill_remaining(0, self.box_length)
-
 
     def remove_cells(self):
         i = 0
@@ -145,6 +145,7 @@ class SudokuGenerator:
             i += 1
             if i >= self.removed_cells:
                 break
+
 
 
 def generate_sudoku(size, removed):
